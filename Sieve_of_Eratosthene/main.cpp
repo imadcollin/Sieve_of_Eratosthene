@@ -11,7 +11,7 @@
 #include <pthread.h>
 using namespace std;
 #include<vector>
-#include <math.h>       /* sqrt */
+#include <math.h> /* sqrt */
 
 class Sieve{
 public:
@@ -103,31 +103,11 @@ int main () {
     int cores_num=3;
     pthread_t t_id[cores_num];
     for (int i=0; i<cores_num;i++) {
-        pthread_create(&t_id[i],  NULL,secondApproach,NULL);
+        pthread_create(&t_id[i],NULL,secondApproach,NULL);
     }
     //Join all threads...!
     for (int i=0; i<cores_num;i++) {
         pthread_join(t_id[i], NULL);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
