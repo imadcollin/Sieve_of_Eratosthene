@@ -58,39 +58,67 @@ public:
  for this algorithm
  loop is: O(n)
  for nests loops O * log(n)
- THE RESULT =O(n) +  O * log(n)
+ THE RESULT =O(n ln ln n)
  
  */
-
-void *secondApproach(void*){
-    int n=250000;
+int shared;
+void* secondApproach(void* arg){
+    
+    int *argument_ptr= (int *)arg;
+    int argument_1=*argument_ptr;
+    
+    //1-List of numbers
+    //int n=argument_1;
+    int n=25;
     int e;
     int primes[n+1];
     for (int i=0; i<n; i++)
         primes[i]=1;
+    //2- seed k=2
+    //3- loop until k*k<n
     for(int i=2;i*i<n;i++)
     {
         if(primes[i]==1){
-            
+            //4. Mark all multiples of [k*k-n]
             for (int j = i*i; j<n; j +=i) {
                 primes[j] = 0;
             }
         }
     }
+    //5- prinet unmarked numbers
     for (int i=2; i<=n; i++) {
         if(primes[i]){
             
             cout<<i<<endl;
+            // shared=i;
             e=i;
         }
         
     }
-    pthread_exit(&e);
-    
+    for(int i=0;i<argument_1;i++){
+        shared=shared+i;
+        cout<<shared<<endl;
+        
+    }
+    // pthread_exit(&e);
+    pthread_exit(0);
     return NULL;
 }
-int main () {
-    Sieve s;
+int main(int argc, char* argv[]){
+    
+    if (argc < 2) {
+        std::cerr << "Usage: " << argv[0] << " Do something" << std::endl;
+        return 1;
+    }
+    long long  argument_1=atoll(argv[1]);
+    std::cout << argv[0] << "says hello, " << argument_1 << "!" << std::endl;
+    
+    pthread_t tid;
+    pthread_attr_t attr;
+    pthread_attr_init(&attr);
+    pthread_create(&tid,&attr,secondApproach,&argument_1);
+    pthread_join(tid,NULL);
+    //Sieve s;
     //s.firstApproach(25);
     //secondApproach();
     
@@ -99,15 +127,17 @@ int main () {
      pthread_create(&t,  NULL,secondApproach,NULL);
      pthread_join(t, NULL);
      */
-    //Creating a pnuch of threads for the purpose!
-    int cores_num=3;
-    pthread_t t_id[cores_num];
-    for (int i=0; i<cores_num;i++) {
-        pthread_create(&t_id[i],NULL,secondApproach,NULL);
-    }
-    //Join all threads...!
-    for (int i=0; i<cores_num;i++) {
-        pthread_join(t_id[i], NULL);
-    }
+    //Creating a bunch of threads for the purpose!
+    /*
+     int cores_num=1;
+     pthread_t t_id[cores_num];
+     for (int i=0; i<cores_num;i++) {
+     pthread_create(&t_id[i],NULL,secondApproach,NULL);
+     }
+     //Join all threads...!
+     for (int i=0; i<cores_num;i++) {
+     pthread_join(t_id[i], NULL);
+     }
+     */
 }
 
