@@ -61,11 +61,16 @@ public:
  THE RESULT =O(n ln ln n)
  
  */
+struct runner_struct{
+    long long limit;
+    long long answer;
+};
 int shared;
 void* secondApproach(void* arg){
     
-    int *argument_ptr= (int *)arg;
-    int argument_1=*argument_ptr;
+    struct runner_struct *argument_strct= (struct runner_struct*)arg;
+    long long sum=0;
+    //int argument_1=*argument_ptr;
     
     //1-List of numbers
     //int n=argument_1;
@@ -89,17 +94,17 @@ void* secondApproach(void* arg){
     for (int i=2; i<=n; i++) {
         if(primes[i]){
             
-            cout<<i<<endl;
-            // shared=i;
+            // cout<<i<<endl;
+            shared=i;
             e=i;
         }
         
     }
-    for(int i=0;i<argument_1;i++){
-        shared=shared+i;
-        cout<<shared<<endl;
+    for(int i=0;i<argument_strct->limit;i++){
+        sum=sum+i;
         
     }
+    argument_strct->answer=sum;
     // pthread_exit(&e);
     pthread_exit(0);
     return NULL;
@@ -110,14 +115,29 @@ int main(int argc, char* argv[]){
         std::cerr << "Usage: " << argv[0] << " Do something" << std::endl;
         return 1;
     }
-    long long  argument_1=atoll(argv[1]);
-    std::cout << argv[0] << "says hello, " << argument_1 << "!" << std::endl;
     
-    pthread_t tid;
-    pthread_attr_t attr;
-    pthread_attr_init(&attr);
-    pthread_create(&tid,&attr,secondApproach,&argument_1);
-    pthread_join(tid,NULL);
+    // Accept more than on arg
+    int arguments=argc-1;
+    cout<<"arguments:"<<arguments;
+    struct runner_struct args[arguments];
+    // std::cout << argv[0] << "says hello, " << argument_1 << "!" << std::endl;
+    
+    //Lunch a bunch of threads
+    pthread_t t_ids[arguments];
+    for (int i=0; i<arguments;i++) {
+        pthread_attr_t attr;
+        pthread_attr_init(&attr);
+        args[i].limit=atoll(argv[i+1]);
+        
+        pthread_create(&t_ids[i],NULL,secondApproach,&args[i]);
+    }
+    //Join all threads...!
+    for (int i=0; i<arguments;i++) {
+        pthread_join(t_ids[i], NULL);
+        cout<<"sherd is " <<args[i].answer<<endl;
+        
+    }
+    
     //Sieve s;
     //s.firstApproach(25);
     //secondApproach();
