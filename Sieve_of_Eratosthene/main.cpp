@@ -50,6 +50,17 @@ public:
     }
     
 };
+//Complixity:
+/** for normal approach
+  O * sqrt(n)
+  For te loop as well will be: O * (n*sqrt n)
+  
+  for this algorithm
+  loop is: O(n)
+  for nests loops O * log(n)
+  THE RESULT =O(n) +  O * log(n)
+  
+  */
 
 int main () {
     Sieve s;
