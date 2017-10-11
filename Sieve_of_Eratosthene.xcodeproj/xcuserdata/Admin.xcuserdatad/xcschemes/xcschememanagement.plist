@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Sieve-openmp.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>Sieve_of_Eratosthene.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
