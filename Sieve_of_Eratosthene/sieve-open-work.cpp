@@ -1,15 +1,9 @@
-//
-//  sieve-open-work.cpp
-//  Sieve_of_Eratosthene
-//
-//  Created by Imad Collin on 2017-10-11.
-//  Copyright © 2017 Imad Collin. All rights reserved.
-//
-
-#include "sieve-open-work.hpp"
 //sieve.c
 //
 //
+
+//Command for OpenMP
+//g++-7 -fopenmp  sieve.c -o ss
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -29,10 +23,12 @@ long maxnumber;
 long counter ;
 int nSeeds=0;
 int *seeds;
+bool flag=false;
 
 void * find(void * pn){
     int i;
     int lCounter;
+    // bool flag=false;
     
     unsigned char * numbers = (unsigned char *) pn;
     while (counter<(maxnumber+1)) {
@@ -43,10 +39,14 @@ void * find(void * pn){
         
         //for all the seeds, check if the number is divisible by them
         //printf("number of seeds: %d\n",nSeeds);
+        //#pragma omp parallel for
         for(i=0; i<nSeeds; i++){
+            //    if(flag) continue;
             if((lCounter % seeds[i])==0){ //if the number is divisible by the seed
-                //          printf("Counter: %d\n",lCounter);
+                //  printf("Counter: %d\n",lCounter);
                 numbers[lCounter] = 1;   //mark the number
+                flag=true;
+                //Break statement will produce an error!!
                 break;
             }
         }
@@ -60,17 +60,17 @@ void calcSeeds(unsigned char numbers[]){
     int i=0;
     
     int sqrtMax = round (sqrt (maxnumber));
-    
     while (k_cur <= sqrtMax){
         k_mul = k_cur*k_cur;
+#pragma omp parallel
         while(k_mul <= sqrtMax){
             numbers[k_mul] = 1;
             k_mul += k_cur;
         }
         while(numbers[++k_cur]){}
     }
-#pragma omp parallel for
     for(i=0; i<sqrtMax; i++){
+        //
         if(numbers[i]==0)
             nSeeds++;
     }
@@ -158,3 +158,4 @@ int main(int argc, char* argv[]){
     
     return 0;
 }
+
