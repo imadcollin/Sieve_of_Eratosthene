@@ -64,18 +64,18 @@ public:
 struct runner_struct{
     long long limit;
     long long answer;
+    
 };
 int shared;
+vector<int> vec;
 void* secondApproach(void* arg){
     
     struct runner_struct *argument_strct= (struct runner_struct*)arg;
     long long sum=0;
-    //int argument_1=*argument_ptr;
     
     //1-List of numbers
-    //int n=argument_1;
-    int n=25;
-    int e;
+    long long  n=argument_strct->limit;
+   // int e;
     int primes[n+1];
     for (int i=0; i<n; i++)
         primes[i]=1;
@@ -91,20 +91,17 @@ void* secondApproach(void* arg){
         }
     }
     //5- prinet unmarked numbers
-    for (int i=2; i<=n; i++) {
+    for (int i=2;i<argument_strct->limit;i++) {
         if(primes[i]){
-            
-            // cout<<i<<endl;
+           cout<<i<<endl;
+            argument_strct->answer=i;
             shared=i;
-            e=i;
+            vec.push_back(i);
+
         }
         
     }
-    for(int i=0;i<argument_strct->limit;i++){
-        sum=sum+i;
-        
-    }
-    argument_strct->answer=sum;
+
     // pthread_exit(&e);
     pthread_exit(0);
     return NULL;
@@ -134,8 +131,13 @@ int main(int argc, char* argv[]){
     //Join all threads...!
     for (int i=0; i<arguments;i++) {
         pthread_join(t_ids[i], NULL);
-        cout<<"sherd is " <<args[i].answer<<endl;
-        
+        cout<<"primes are " <<args[i].answer<<endl;
+        cout<<"Thread id  is " <<t_ids[i]<<endl;
+        cout<<"shared nizam:"<<vec.size();
+
+    }
+    for (int i=0;i<vec.size();i++ ) {
+        cout<<vec[i]<<endl;
     }
     
     //Sieve s;
