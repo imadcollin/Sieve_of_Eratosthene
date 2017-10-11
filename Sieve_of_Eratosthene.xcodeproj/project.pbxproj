@@ -7,10 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		847F8A7E1F8E5E5200717110 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 847F8A7D1F8E5E5200717110 /* main.cpp */; };
 		848080341F7D240E007B7269 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 848080331F7D240E007B7269 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		847F8A791F8E5E5200717110 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		8480802E1F7D240E007B7269 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -23,11 +33,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		847F8A7B1F8E5E5200717110 /* Sieve-openmp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Sieve-openmp"; sourceTree = BUILT_PRODUCTS_DIR; };
+		847F8A7D1F8E5E5200717110 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		848080301F7D240E007B7269 /* Sieve_of_Eratosthene */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Sieve_of_Eratosthene; sourceTree = BUILT_PRODUCTS_DIR; };
 		848080331F7D240E007B7269 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = main.cpp; sourceTree = "<group>"; tabWidth = 4; wrapsLines = 1; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		847F8A781F8E5E5200717110 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8480802D1F7D240E007B7269 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -38,10 +57,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		847F8A7C1F8E5E5200717110 /* Sieve-openmp */ = {
+			isa = PBXGroup;
+			children = (
+				847F8A7D1F8E5E5200717110 /* main.cpp */,
+			);
+			path = "Sieve-openmp";
+			sourceTree = "<group>";
+		};
 		848080271F7D240E007B7269 = {
 			isa = PBXGroup;
 			children = (
 				848080321F7D240E007B7269 /* Sieve_of_Eratosthene */,
+				847F8A7C1F8E5E5200717110 /* Sieve-openmp */,
 				848080311F7D240E007B7269 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				848080301F7D240E007B7269 /* Sieve_of_Eratosthene */,
+				847F8A7B1F8E5E5200717110 /* Sieve-openmp */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -65,6 +94,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		847F8A7A1F8E5E5200717110 /* Sieve-openmp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 847F8A811F8E5E5200717110 /* Build configuration list for PBXNativeTarget "Sieve-openmp" */;
+			buildPhases = (
+				847F8A771F8E5E5200717110 /* Sources */,
+				847F8A781F8E5E5200717110 /* Frameworks */,
+				847F8A791F8E5E5200717110 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Sieve-openmp";
+			productName = "Sieve-openmp";
+			productReference = 847F8A7B1F8E5E5200717110 /* Sieve-openmp */;
+			productType = "com.apple.product-type.tool";
+		};
 		8480802F1F7D240E007B7269 /* Sieve_of_Eratosthene */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 848080371F7D240E007B7269 /* Build configuration list for PBXNativeTarget "Sieve_of_Eratosthene" */;
@@ -91,6 +137,10 @@
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Imad Collin";
 				TargetAttributes = {
+					847F8A7A1F8E5E5200717110 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
 					8480802F1F7D240E007B7269 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
@@ -110,11 +160,20 @@
 			projectRoot = "";
 			targets = (
 				8480802F1F7D240E007B7269 /* Sieve_of_Eratosthene */,
+				847F8A7A1F8E5E5200717110 /* Sieve-openmp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		847F8A771F8E5E5200717110 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				847F8A7E1F8E5E5200717110 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8480802C1F7D240E007B7269 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -126,6 +185,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		847F8A7F1F8E5E5200717110 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		847F8A801F8E5E5200717110 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		848080351F7D240E007B7269 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -248,6 +323,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		847F8A811F8E5E5200717110 /* Build configuration list for PBXNativeTarget "Sieve-openmp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				847F8A7F1F8E5E5200717110 /* Debug */,
+				847F8A801F8E5E5200717110 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		8480802B1F7D240E007B7269 /* Build configuration list for PBXProject "Sieve_of_Eratosthene" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
