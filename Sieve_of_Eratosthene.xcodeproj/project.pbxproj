@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		847F8A851F8E5F2900717110 /* sieve.c in Sources */ = {isa = PBXBuildFile; fileRef = 847F8A831F8E5F2900717110 /* sieve.c */; };
+		847F8A881F8EC79B00717110 /* sieve-open-work.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 847F8A861F8EC79B00717110 /* sieve-open-work.cpp */; };
 		848080341F7D240E007B7269 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 848080331F7D240E007B7269 /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,8 @@
 /* Begin PBXFileReference section */
 		847F8A7B1F8E5E5200717110 /* Sieve-openmp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Sieve-openmp"; sourceTree = BUILT_PRODUCTS_DIR; };
 		847F8A831F8E5F2900717110 /* sieve.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = sieve.c; path = ../../../../../Volumes/Files/Uppsala_University/IntrodactionParallel/Assignments/hand_ins/second/sieve.c; sourceTree = "<group>"; };
+		847F8A861F8EC79B00717110 /* sieve-open-work.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "sieve-open-work.cpp"; sourceTree = "<group>"; };
+		847F8A871F8EC79B00717110 /* sieve-open-work.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "sieve-open-work.hpp"; sourceTree = "<group>"; };
 		848080301F7D240E007B7269 /* Sieve_of_Eratosthene */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Sieve_of_Eratosthene; sourceTree = BUILT_PRODUCTS_DIR; };
 		848080331F7D240E007B7269 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = main.cpp; sourceTree = "<group>"; tabWidth = 4; wrapsLines = 1; };
 /* End PBXFileReference section */
@@ -87,6 +90,8 @@
 			isa = PBXGroup;
 			children = (
 				848080331F7D240E007B7269 /* main.cpp */,
+				847F8A861F8EC79B00717110 /* sieve-open-work.cpp */,
+				847F8A871F8EC79B00717110 /* sieve-open-work.hpp */,
 			);
 			path = Sieve_of_Eratosthene;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				848080341F7D240E007B7269 /* main.cpp in Sources */,
+				847F8A881F8EC79B00717110 /* sieve-open-work.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
